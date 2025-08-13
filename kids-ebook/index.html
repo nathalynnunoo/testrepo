@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sunny's Big Adventure — Kids Storybook</title>
+  <meta name="description" content="A children's storybook with a realistic page‑flip, read‑aloud, and autoplay.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <noscript>This storybook needs JavaScript enabled for the page‑flip and read‑aloud features.</noscript>
+
+  <header class="app-header" role="banner">
+    <div class="title">
+      <span class="emoji" aria-hidden="true">📖</span>
+      <h1>Sunny's Big Adventure</h1>
+    </div>
+    <div class="controls" role="toolbar" aria-label="Reader controls">
+      <button id="btnHelp" class="btn secondary" type="button" aria-haspopup="dialog" aria-controls="helpDialog">Help</button>
+      <button id="btnReadAloud" class="btn" type="button" aria-pressed="false" title="Toggle read‑aloud">
+        <span class="icon" aria-hidden="true">🔈</span>
+        <span class="label">Read Aloud</span>
+      </button>
+      <button id="btnAutoplay" class="btn" type="button" aria-pressed="false" title="Toggle autoplay">
+        <span class="icon" aria-hidden="true">⏯</span>
+        <span class="label">Autoplay</span>
+      </button>
+      <label class="speed" for="speedRange">
+        <span>Speed</span>
+        <input id="speedRange" type="range" min="0.75" max="1.5" step="0.05" value="1" aria-label="Reading speed">
+      </label>
+      <button id="btnNight" class="btn secondary" type="button" aria-pressed="false" title="Toggle night mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="app-main" role="main">
+    <div class="scene" aria-label="Story book">
+      <div id="book" class="book" role="group" aria-roledescription="flip book" aria-live="polite"></div>
+      <button id="prev" class="nav prev" aria-label="Previous page" title="Previous (←)">❮</button>
+      <button id="next" class="nav next" aria-label="Next page" title="Next (→)">❯</button>
+    </div>
+
+    <div class="progress" aria-label="Page progress">
+      <output id="pageCounter" for="book">Page 1</output>
+      <div id="progressDots" class="dots" role="tablist" aria-label="Jump to page"></div>
+    </div>
+
+    <div id="status" class="sr-only" aria-live="polite"></div>
+  </main>
+
+  <dialog id="helpDialog" class="help">
+    <form method="dialog">
+      <h2>How to read</h2>
+      <ul>
+        <li>Tap or click the big arrows to turn pages.</li>
+        <li>Use your keyboard: ← and →.</li>
+        <li>Swipe left or right on touch screens.</li>
+        <li>Toggle Read Aloud to narrate each page.</li>
+        <li>Autoplay turns pages for you.</li>
+      </ul>
+      <div class="actions">
+        <button value="cancel" class="btn">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
